@@ -1,0 +1,33 @@
+{% extends 'users/userbase.html' %}
+
+{% block title %} User MriStroke Screening {% endblock %}
+{% block user_mri_stroke %}active{% endblock %}
+
+{% block content %}
+
+<section id="intro">
+
+    <div class="intro-text">
+        <div class="container">
+          <p>
+            <h2 align="center">Upload Brain CT Scan Image</h2>
+            <form method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                <div class="form-group">
+                  <input type="file" id="contact_subject" name="file" class="form-control" placeholder="Select an Image"  required/>
+                </div>
+                <div class="form-group">
+                  <button type="submit" id="contact_subject" name="Submit" class="btn-get-started scrollto" >Submit</button>
+                </div>
+            </form>
+            {% if results_class %}
+            <h3>
+              Result Class => {{results_class}}
+            </h3>
+            {% endif %}
+          </p>
+        </div>
+    </div>
+  </section>
+
+{% endblock %}
